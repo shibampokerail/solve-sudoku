@@ -20,7 +20,8 @@ class Reader:
         self.unsolved_grid = self.generate_array_from_txt()
         self.array_3d = self.generate_3d_array(self.unsolved_grid)
         self.row_arrays = self.generate_row_arrays(self.array_3d)
-        print(self.row_arrays)
+        nine_groups = self.generate_nine_groups()
+        # print(self.row_arrays)
 
     def generate_array_from_txt(self):
         with open(self.filename, "r") as problem:
@@ -79,7 +80,11 @@ class Reader:
                         row_array = []
 
                     row_array.append(three_d_grid[j][k][l])
+                    if j == 8 and k == 2 and l == 2:
+                        row_arrays.append(row_array)
                     count += 1
+
+
 
         return row_arrays
 
@@ -87,11 +92,31 @@ class Reader:
 
         array_counter = 0
         row_counter = 0
+        number_counter = 0
+        nine_group_arrays = []
+        # print(self.row_arrays)
+        for row in self.row_arrays:
+            temp_array = []
+            for number in row:
+                temp_array.append(number)
+
+                number_counter += 1
+                if number_counter == 3:
+                    nine_group_arrays.append(temp_array)
+                    temp_array = []
+                    number_counter = 0
+                #  print(nine_group_arrays)
 
         nine_groups = []
 
-        for row in self.row_arrays:
-            for number in row:
+        for j in range(3):
+            for i in range(3, 0, -1):
+                nine_groups.append(nine_group_arrays[0] + nine_group_arrays[i] + nine_group_arrays[i + i])
+                nine_group_arrays[0], nine_group_arrays[i], nine_group_arrays[i + i] = [], [], []
+                for k in range(3):
+                    nine_group_arrays.remove([])
+
+        return nine_groups
 
 
 class Analyzer:
@@ -281,14 +306,4 @@ class Analyzer:
         pass
 
 
-read = Reader("problem1.txt")
-grid = read.unsolved_grid
-nine_groups = read.array_3d
-print(nine_groups)
 
-analyze = Analyzer(grid)
-# print((analyze.empty_positions))
-# analyze.get_row_data((analyze.empty_positions)[0][0])
-# analyze.get_column_data(8)
-possible_numbers_from_row_check = analyze.row_and_column_check([6, 8])
-analyze.check_redundancy_in_groups([6, 8], grid, possible_numbers_from_row_check)
