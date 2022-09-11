@@ -84,8 +84,6 @@ class Reader:
                         row_arrays.append(row_array)
                     count += 1
 
-
-
         return row_arrays
 
     def generate_nine_groups(self):
@@ -120,15 +118,15 @@ class Reader:
 
 
 class Analyzer:
-    _3x3_mapper = three_by_three_mapper = {"00": 1,
-                                           "01": 2,
-                                           "02": 3,
-                                           "10": 4,
-                                           "11": 5,
-                                           "12": 6,
-                                           "20": 7,
-                                           "21": 8,
-                                           "22": 9,
+    _3x3_mapper = three_by_three_mapper = {"00": 0,
+                                           "01": 1,
+                                           "02": 2,
+                                           "10": 3,
+                                           "11": 4,
+                                           "12": 5,
+                                           "20": 6,
+                                           "21": 7,
+                                           "22": 8,
                                            }
 
     def __init__(self, two_d_grid):
@@ -274,16 +272,19 @@ class Analyzer:
         box_row_position = 0
         box_column_position = 0
 
-        while row > 3:
+        while row > 2:
             row -= 3
             box_row_position += 1
 
-        while column > 3:
+        while column > 2:
             column -= 3
             box_column_position += 1
 
-        print(row, column)
-        print(box_row_position, box_column_position)
+        # for the position of the empty box within that box
+        # row = row - 1
+        # column = column - 1
+        # print(row, column)
+
         mapper = self._3x3_mapper
         box_position = mapper[f"{box_row_position}{box_column_position}"]
         possible_numbers_from_group_check = []
@@ -294,16 +295,16 @@ class Analyzer:
             if i != 0:
                 possible_numbers_from_group_check.append(i)
 
+
         if probabilities is not None:
             for i in current_group:
                 if i in probabilities:
                     probabilities.remove(i)
+
+        return probabilities
 
     def check_redundancy_in_rows(self):
         pass
 
     def check_redundancy_in_columns(self):
         pass
-
-
-
