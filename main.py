@@ -131,13 +131,13 @@ class Analyzer:
 
     def __init__(self, two_d_grid):
         self.two_d_grid = two_d_grid
-        self.empty_positions = self.find_empty_positions(self.two_d_grid)
+        self.empty_positions = self.find_empty_positions()
 
-    def find_empty_positions(self, two_d_grid):
+    def find_empty_positions(self):
         empty_positions = []
         for column in range(9):
             for row in range(9):
-                if two_d_grid[column][row] == 0:
+                if self.two_d_grid[column][row] == 0:
                     empty_positions.append([column, row])
         return empty_positions
 
@@ -259,7 +259,6 @@ class Analyzer:
             if number in possible_numbers:
                 possible_numbers.remove(number)
 
-        print(possible_numbers)
         return possible_numbers
 
     def check_redundancy_in_groups(self, empty_position, nine_groups_grid, probabilities=None):
@@ -295,16 +294,9 @@ class Analyzer:
             if i != 0:
                 possible_numbers_from_group_check.append(i)
 
-
         if probabilities is not None:
-            for i in current_group:
-                if i in probabilities:
+            for i in probabilities:
+                if i in current_group:
                     probabilities.remove(i)
 
         return probabilities
-
-    def check_redundancy_in_rows(self):
-        pass
-
-    def check_redundancy_in_columns(self):
-        pass
