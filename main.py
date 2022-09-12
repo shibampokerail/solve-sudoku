@@ -20,7 +20,7 @@ class Reader:
         self.unsolved_grid = self.generate_array_from_txt()
         self.array_3d = self.generate_3d_array(self.unsolved_grid)
         self.row_arrays = self.generate_row_arrays(self.array_3d)
-        nine_groups = self.generate_nine_groups()
+        self.nine_groups = self.generate_nine_groups()
         # print(self.row_arrays)
 
     def generate_array_from_txt(self):
@@ -289,6 +289,8 @@ class Analyzer:
         possible_numbers_from_group_check = []
 
         current_group = nine_groups_grid[box_position]
+        print("current_group:", current_group)
+        print("possible_numbers:", probabilities)
 
         for i in current_group:
             if i != 0:
