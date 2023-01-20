@@ -10,5 +10,5 @@ it takes input from a txt file input from ocr is under work.
 convert a sudoku problem into a .txt file.  
 run the run.py in terminal
 
-##Future
+## Future
 Use OCr or open cv to read the sudoku. 
