@@ -1,4 +1,4 @@
-# solve-sudoku
+# solve-sudoku-puzzle
 - This program solves sudoku
 - currently it takes the problems in the txt format.
 
