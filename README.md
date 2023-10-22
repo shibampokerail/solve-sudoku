@@ -7,4 +7,5 @@
 - run the run.py in terminal
 
 ## Future
-Use pytesseract ocr or open cv to read the sudoku from image. 
+- Flask or other web framework to host the input and output.
+- pytesseract ocr or open cv to read the sudoku from image. 
