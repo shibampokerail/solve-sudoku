@@ -1,3 +1,5 @@
+# sudoku solver
+![SAMPLE SUDOKU](https://github.com/shibampokerail/solve-sudoku/blob/main/Sudoku.jpg?raw=true)
 # solve-sudoku-puzzle
 - This program solves sudoku
 - currently it takes the problems in the txt format.
@@ -11,4 +13,4 @@
 - pytesseract ocr or open cv to read the sudoku from image.
 
 
-![SAMPLE SUDOKU](https://github.com/shibampokerail/solve-sudoku/blob/main/Sudoku.jpg?raw=true)
+
