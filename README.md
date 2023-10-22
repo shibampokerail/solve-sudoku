@@ -11,4 +11,4 @@ convert a sudoku problem into a .txt file.
 run the run.py in terminal
 
 ## Future
-Use OCr or open cv to read the sudoku. 
+Use pytesseract ocr or open cv to read the sudoku. 
