@@ -8,5 +8,7 @@
 
 ## Future
 - Flask or other web framework to host the input and output.
-- pytesseract ocr or open cv to read the sudoku from image. 
+- pytesseract ocr or open cv to read the sudoku from image.
+
+
 ![SAMPLE SUDOKU](https://github.com/shibampokerail/solve-sudoku/blob/main/Sudoku.jpg?raw=true)
