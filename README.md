@@ -1,6 +1,6 @@
 # sudoku solver
-![SAMPLE SUDOKU](https://github.com/shibampokerail/solve-sudoku/blob/main/Sudoku.jpg?raw=true)
-# solve-sudoku-puzzle
+- ![SAMPLE SUDOKU](https://github.com/shibampokerail/solve-sudoku/blob/main/Sudoku.jpg?raw=true)
+
 - This program solves sudoku
 - currently it takes the problems in the txt format.
 
